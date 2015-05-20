@@ -36,20 +36,6 @@ makeeclipseproject.sh
 extractclasspaths.py
 
 
-#
-## Polopoly
-##
-
-target/
-work/
-server-content-hub/overlays
-/bin
-
-# Generated files
-webapp-dispatcher/src/main/webapp/css-gen
-webapp-dispatcher/src/main/webapp/img-gen
-
-
 ##
 ## OS X
 ##
