@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "ef2254b87b67630e4f4e3b4655ece177",
+    "hash": "0ba06cfa6d41048b7714b850c93e99b8",
     "packages": [
         {
             "name": "aura/installer-default",
@@ -745,16 +745,16 @@
     "packages-dev": [
         {
             "name": "cakephp/bake",
-            "version": "1.0.7",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cakephp/bake.git",
-                "reference": "313a58eb2e97aaae32f02942593e697e5930314c"
+                "reference": "bf14d9cc37b0f2a7ee0ea2c1114162848befb688"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cakephp/bake/zipball/313a58eb2e97aaae32f02942593e697e5930314c",
-                "reference": "313a58eb2e97aaae32f02942593e697e5930314c",
+                "url": "https://api.github.com/repos/cakephp/bake/zipball/bf14d9cc37b0f2a7ee0ea2c1114162848befb688",
+                "reference": "bf14d9cc37b0f2a7ee0ea2c1114162848befb688",
                 "shasum": ""
             },
             "require": {
@@ -787,7 +787,7 @@
                 "bake",
                 "cakephp"
             ],
-            "time": "2015-05-11 07:33:53"
+            "time": "2015-05-26 12:00:12"
         },
         {
             "name": "cakephp/debug_kit",
@@ -1088,7 +1088,8 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "psy/psysh": 0
+        "psy/psysh": 0,
+        "cakephp/bake": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,

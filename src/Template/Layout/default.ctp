@@ -44,7 +44,9 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         </div>
     </header>
     <div id="container">
-
+        <ul>
+            <li><a href="/ds3/usuarios">Usuários</a></li>
+        </ul>
         <div id="content">
             <?= $this->Flash->render() ?>
 
