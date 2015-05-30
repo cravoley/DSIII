@@ -1,3 +1,3 @@
 <?php
 
-//$this->assign('title', 'Sistema DS3');
+$this->assign('title', 'Sistema DS3');

@@ -1,0 +1,37 @@
+
+/****************************
+* CSS Projetado pelos colegas de grupo em DS3 Unisinos
+**************************************/
+
+#menu-horizontal{
+    padding-left: 80px;
+    background-color:#EDEDED
+}
+
+#menu-horizontal ul {
+    padding:0px;
+    margin:0px;
+    background-color:#EDEDED;
+    list-style:none;
+}
+
+#menu-horizontal ul li {
+    display: inline;
+}
+
+#menu-horizontal ul li a {
+    padding: 8px 15px;
+    display: inline-block;
+
+    /* visual do link */
+    background-color:#EDEDED;
+    color: #0097a7;
+    text-decoration: none;
+    border-bottom:3px solid #EDEDED;
+}
+
+#menu-horizontal ul li a:hover {
+    background-color:#D6D6D6;
+    color: #fff;
+    border-bottom:3px solid #005580;
+}

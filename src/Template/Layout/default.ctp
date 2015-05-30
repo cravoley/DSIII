@@ -28,6 +28,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 
     <?= $this->Html->css('base.css') ?>
     <?= $this->Html->css('cake.css') ?>
+    <?= $this->Html->css('ds3.css') ?>
 
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
@@ -44,9 +45,20 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         </div>
     </header>
     <div id="container">
-        <ul>
-            <li><a href="/ds3/usuarios">Usuários</a></li>
-        </ul>
+        <nav id="menu-horizontal">
+            <ul>
+                <li><a href="/ds3/estoques">Estoque</a></li>
+                <li><a href="/ds3/fabrica_produtos">Lista Técnica</a></li>
+                <li><a href="/ds3/fornecedores">Fornecedores</a></li>
+                <li><a href="/ds3/materias_primas">Matéria Prima</a></li>
+                <li><a href="/ds3/matpri_fornecedores">Informações Materia Prima</a></li>
+                <li><a href="/ds3/pedidos">Pedidos</a></li>
+                <li><a href="/ds3/produtos">Produtos</a></li>
+                <li><a href="/ds3/pedido_itens">Itens do Pedido</a></li>
+                <li><a href="/ds3/status">Status</a></li>
+                <li><a href="/ds3/usuarios">Usuários</a></li>
+            </ul>
+        </nav>
         <div id="content">
             <?= $this->Flash->render() ?>
 
