@@ -50,8 +50,8 @@ class UsuariosTable extends Table
             ->notEmpty('login');
             
         $validator
-            ->requirePresence('senha', 'create')
-            ->notEmpty('senha');
+            ->requirePresence('password', 'create')
+            ->notEmpty('password');
             
         $validator
             ->add('datacadastro', 'valid', ['rule' => 'date'])

@@ -13,7 +13,7 @@
         <?php
             echo $this->Form->input('nome');
             echo $this->Form->input('login');
-            echo $this->Form->input('senha');
+            echo $this->Form->input('password');
             echo $this->Form->input('datacadastro', array('empty' => true, 'default' => ''));
         ?>
     </fieldset>

@@ -11,6 +11,11 @@ use App\Controller\AppController;
 class PedidosController extends AppController
 {
 
+    public function isAuthorized($user){
+        //$this->Flash->error(__('The pedido not accessed.'));
+        return false;
+    }
+
     /**
      * Index method
      *
