@@ -12,8 +12,9 @@ class PedidosController extends AppController
 {
 
     public function isAuthorized($user){
+        //exemplo para denar uma página
         //$this->Flash->error(__('The pedido not accessed.'));
-        return false;
+        //return false;
     }
 
     /**
