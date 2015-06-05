@@ -13,6 +13,9 @@
     </ul>
 </div>
 <div class="pedidos index large-10 medium-9 columns">
+    <form>
+        <input type="text" class="datepicker" />
+    </form>
     <table cellpadding="0" cellspacing="0">
     <thead>
         <tr>
@@ -31,16 +34,16 @@
         <tr>
             <td><?= $this->Number->format($pedido->id) ?></td>
             <td>
-                <?= $pedido->has('fornecedore') ? $this->Html->link($pedido->fornecedore->id, ['controller' => 'Fornecedores', 'action' => 'view', $pedido->fornecedore->id]) : '' ?>
+                <?= $pedido->has('fornecedore') ? $this->Html->link($pedido->fornecedore->nome, ['controller' => 'Fornecedores', 'action' => 'view', $pedido->fornecedore->id]) : '' ?>
             </td>
             <td><?= h($pedido->datapedido) ?></td>
             <td><?= h($pedido->dataentrega) ?></td>
             <td>
-                <?= $pedido->has('status') ? $this->Html->link($pedido->status->id, ['controller' => 'Status', 'action' => 'view', $pedido->status->id]) : '' ?>
+                <?= $pedido->has('status') ? $this->Html->link($pedido->status->descricao, ['controller' => 'Status', 'action' => 'view', $pedido->status->id]) : '' ?>
             </td>
             <td><?= h($pedido->dataprevisaoentrega) ?></td>
             <td>
-                <?= $pedido->has('usuario') ? $this->Html->link($pedido->usuario->id, ['controller' => 'Usuarios', 'action' => 'view', $pedido->usuario->id]) : '' ?>
+                <?= $pedido->has('usuario') ? $this->Html->link($pedido->usuario->nome, ['controller' => 'Usuarios', 'action' => 'view', $pedido->usuario->id]) : '' ?>
             </td>
             <td class="actions">
                 <?= $this->Html->link(__('View'), ['action' => 'view', $pedido->id]) ?>
