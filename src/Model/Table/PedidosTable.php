@@ -52,19 +52,22 @@ class PedidosTable extends Table
         $validator
             ->add('id', 'valid', ['rule' => 'numeric'])
             ->allowEmpty('id', 'create');
-            
+
         $validator
             ->add('datapedido', 'valid', ['rule' => 'date'])
             ->requirePresence('datapedido', 'create')
             ->notEmpty('datapedido');
-            
+
         $validator
             ->add('dataentrega', 'valid', ['rule' => 'date'])
             ->allowEmpty('dataentrega');
-            
+
         $validator
             ->add('dataprevisaoentrega', 'valid', ['rule' => 'date'])
             ->allowEmpty('dataprevisaoentrega');
+
+        $validator->notEmpty('fornecedor_id');
+        $validator->notEmpty('status_id');
 
         return $validator;
     }
@@ -83,4 +86,6 @@ class PedidosTable extends Table
         $rules->add($rules->existsIn(['usuario_id'], 'Usuarios'));
         return $rules;
     }
+
+
 }

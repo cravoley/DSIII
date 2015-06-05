@@ -22,7 +22,7 @@ class UsuariosTable extends Table
     public function initialize(array $config)
     {
         $this->table('usuarios');
-        $this->displayField('id');
+        $this->displayField('nome');
         $this->primaryKey('id');
         $this->hasMany('Pedidos', [
             'foreignKey' => 'usuario_id'
@@ -40,19 +40,19 @@ class UsuariosTable extends Table
         $validator
             ->add('id', 'valid', ['rule' => 'numeric'])
             ->allowEmpty('id', 'create');
-            
+
         $validator
             ->requirePresence('nome', 'create')
             ->notEmpty('nome');
-            
+
         $validator
             ->requirePresence('login', 'create')
             ->notEmpty('login');
-            
+
         $validator
             ->requirePresence('password', 'create')
             ->notEmpty('password');
-            
+
         $validator
             ->add('datacadastro', 'valid', ['rule' => 'date'])
             ->allowEmpty('datacadastro');

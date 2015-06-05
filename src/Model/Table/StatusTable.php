@@ -22,7 +22,7 @@ class StatusTable extends Table
     public function initialize(array $config)
     {
         $this->table('status');
-        $this->displayField('id');
+        $this->displayField('descricao');
         $this->primaryKey('id');
         $this->hasMany('Pedidos', [
             'foreignKey' => 'status_id'
@@ -40,7 +40,7 @@ class StatusTable extends Table
         $validator
             ->add('id', 'valid', ['rule' => 'numeric'])
             ->allowEmpty('id', 'create');
-            
+
         $validator
             ->requirePresence('descricao', 'create')
             ->notEmpty('descricao');

@@ -22,7 +22,7 @@ class FornecedoresTable extends Table
     public function initialize(array $config)
     {
         $this->table('fornecedores');
-        $this->displayField('id');
+        $this->displayField('nome');
         $this->primaryKey('id');
     }
 
@@ -36,18 +36,18 @@ class FornecedoresTable extends Table
     {
         $validator
             ->add('id', 'valid', ['rule' => 'numeric'])
-            ->allowEmpty('id', 'create');
-            
+            ->notEmpty('id', 'create');
+
         $validator
-            ->allowEmpty('nome');
-            
+            ->notEmpty('nome');
+
         $validator
             ->requirePresence('cnpj', 'create')
             ->notEmpty('cnpj');
-            
+
         $validator
             ->allowEmpty('telefone');
-            
+
         $validator
             ->allowEmpty('endereco');
 

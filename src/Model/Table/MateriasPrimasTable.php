@@ -22,7 +22,7 @@ class MateriasPrimasTable extends Table
     public function initialize(array $config)
     {
         $this->table('materias_primas');
-        $this->displayField('id');
+        $this->displayField('nome');
         $this->primaryKey('id');
     }
 
@@ -37,7 +37,7 @@ class MateriasPrimasTable extends Table
         $validator
             ->add('id', 'valid', ['rule' => 'numeric'])
             ->allowEmpty('id', 'create');
-            
+
         $validator
             ->requirePresence('nome', 'create')
             ->notEmpty('nome');
