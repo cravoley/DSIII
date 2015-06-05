@@ -29,6 +29,11 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     <?= $this->Html->css('base.css') ?>
     <?= $this->Html->css('cake.css') ?>
     <?= $this->Html->css('ds3.css') ?>
+    <?= $this->Html->css('jquery/jquery-ui.min.css') ?>
+    <?= $this->Html->css('jquery/jquery-ui.structure.min.css') ?>
+    <?= $this->Html->css('jquery/jquery-ui.theme.min.css') ?>
+    <?= $this->Html->script('jquery/jquery-1.11.3.min') ?>
+    <?= $this->Html->script('jquery/jquery-ui.min') ?>
 
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
