@@ -1,24 +1,20 @@
-<?php $this->assign('title', 'Adicionar item à lista técnica'); ?>
+<?php $this->assign('title', 'Lista técnica'); ?>
 <div class="actions columns large-2 medium-3">
-    <h3><?= __('Actions') ?></h3>
+    <h3><?= __('Ações') ?></h3>
     <ul class="side-nav">
-        <li><?= $this->Html->link(__('List Fabrica Produtos'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('List Produtos'), ['controller' => 'Produtos', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Produto'), ['controller' => 'Produtos', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Materias Primas'), ['controller' => 'MateriasPrimas', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Materias Prima'), ['controller' => 'MateriasPrimas', 'action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('Listar todas'), ['action' => 'index']) ?></li>
     </ul>
 </div>
 <div class="fabricaProdutos form large-10 medium-9 columns">
     <?= $this->Form->create($fabricaProduto) ?>
     <fieldset>
-        <legend><?= __('Add Fabrica Produto') ?></legend>
+        <legend><?= __('Adicionar lista técnica') ?></legend>
         <?php
             echo $this->Form->input('produto_id', ['options' => $produtos]);
             echo $this->Form->input('materia_prima_id', ['options' => $materiasPrimas]);
             echo $this->Form->input('quantidade');
         ?>
     </fieldset>
-    <?= $this->Form->button(__('Submit')) ?>
+    <?= $this->Form->button(__('Salvar')) ?>
     <?= $this->Form->end() ?>
 </div>

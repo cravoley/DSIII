@@ -52,10 +52,10 @@ class FabricaProdutosController extends AppController
         if ($this->request->is('post')) {
             $fabricaProduto = $this->FabricaProdutos->patchEntity($fabricaProduto, $this->request->data);
             if ($this->FabricaProdutos->save($fabricaProduto)) {
-                $this->Flash->success(__('The fabrica produto has been saved.'));
+                $this->Flash->success(__('A lista técnica foi salva.'));
                 return $this->redirect(['action' => 'index']);
             } else {
-                $this->Flash->error(__('The fabrica produto could not be saved. Please, try again.'));
+                $this->Flash->error(__('A lista técnica não pode ser salva, tente novamente.'));
             }
         }
         $produtos = $this->FabricaProdutos->Produtos->find('list', ['limit' => 200]);
@@ -79,10 +79,10 @@ class FabricaProdutosController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $fabricaProduto = $this->FabricaProdutos->patchEntity($fabricaProduto, $this->request->data);
             if ($this->FabricaProdutos->save($fabricaProduto)) {
-                $this->Flash->success(__('The fabrica produto has been saved.'));
+                $this->Flash->success(__('A lista técnica foi salva.'));
                 return $this->redirect(['action' => 'index']);
             } else {
-                $this->Flash->error(__('The fabrica produto could not be saved. Please, try again.'));
+                $this->Flash->error(__('A lista técnica não pode ser salva, tente novamente.'));
             }
         }
         $produtos = $this->FabricaProdutos->Produtos->find('list', ['limit' => 200]);
@@ -103,9 +103,9 @@ class FabricaProdutosController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $fabricaProduto = $this->FabricaProdutos->get($id);
         if ($this->FabricaProdutos->delete($fabricaProduto)) {
-            $this->Flash->success(__('The fabrica produto has been deleted.'));
+            $this->Flash->success(__('A lista técnica foi deletada.'));
         } else {
-            $this->Flash->error(__('The fabrica produto could not be deleted. Please, try again.'));
+            $this->Flash->error(__('A lista técnica não pode ser salva, tente novamente.'));
         }
         return $this->redirect(['action' => 'index']);
     }
