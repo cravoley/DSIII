@@ -1,3 +1,4 @@
+<?php $this->assign('title', 'Valores e prazos dos produtos por fornecedor'); ?>
 <div class="actions columns large-2 medium-3">
     <h3><?= __('Actions') ?></h3>
     <ul class="side-nav">
@@ -25,12 +26,12 @@
         <tr>
             <td><?= $this->Number->format($matpriFornecedore->id) ?></td>
             <td>
-                <?= $matpriFornecedore->has('fornecedore') ? $this->Html->link($matpriFornecedore->fornecedore->id, ['controller' => 'Fornecedores', 'action' => 'view', $matpriFornecedore->fornecedore->id]) : '' ?>
+                <?= $matpriFornecedore->has('fornecedore') ? $this->Html->link($matpriFornecedore->fornecedore->nome, ['controller' => 'Fornecedores', 'action' => 'view', $matpriFornecedore->fornecedore->id]) : '' ?>
             </td>
             <td>
-                <?= $matpriFornecedore->has('materias_prima') ? $this->Html->link($matpriFornecedore->materias_prima->id, ['controller' => 'MateriasPrimas', 'action' => 'view', $matpriFornecedore->materias_prima->id]) : '' ?>
+                <?= $matpriFornecedore->has('materias_prima') ? $this->Html->link($matpriFornecedore->materias_prima->nome, ['controller' => 'MateriasPrimas', 'action' => 'view', $matpriFornecedore->materias_prima->id]) : '' ?>
             </td>
-            <td><?= $this->Number->format($matpriFornecedore->preco) ?></td>
+            <td><?= 'R$ '.$this->Number->format($matpriFornecedore->preco).',00' ?></td>
             <td><?= $this->Number->format($matpriFornecedore->diasprazo) ?></td>
             <td class="actions">
                 <?= $this->Html->link(__('View'), ['action' => 'view', $matpriFornecedore->id]) ?>

@@ -22,7 +22,7 @@ class ProdutosTable extends Table
     public function initialize(array $config)
     {
         $this->table('produtos');
-        $this->displayField('id');
+        $this->displayField('descricao');
         $this->primaryKey('id');
     }
 

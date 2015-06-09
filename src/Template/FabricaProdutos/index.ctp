@@ -1,3 +1,4 @@
+<?php $this->assign('title', 'Lista técnica para fabricação dos produtos'); ?>
 <div class="actions columns large-2 medium-3">
     <h3><?= __('Actions') ?></h3>
     <ul class="side-nav">
@@ -24,10 +25,10 @@
         <tr>
             <td><?= $this->Number->format($fabricaProduto->id) ?></td>
             <td>
-                <?= $fabricaProduto->has('produto') ? $this->Html->link($fabricaProduto->produto->id, ['controller' => 'Produtos', 'action' => 'view', $fabricaProduto->produto->id]) : '' ?>
+                <?= $fabricaProduto->has('produto') ? $this->Html->link($fabricaProduto->produto->descricao, ['controller' => 'Produtos', 'action' => 'view', $fabricaProduto->produto->id]) : '' ?>
             </td>
             <td>
-                <?= $fabricaProduto->has('materias_prima') ? $this->Html->link($fabricaProduto->materias_prima->id, ['controller' => 'MateriasPrimas', 'action' => 'view', $fabricaProduto->materias_prima->id]) : '' ?>
+                <?= $fabricaProduto->has('materias_prima') ? $this->Html->link($fabricaProduto->materias_prima->nome, ['controller' => 'MateriasPrimas', 'action' => 'view', $fabricaProduto->materias_prima->id]) : '' ?>
             </td>
             <td><?= $this->Number->format($fabricaProduto->quantidade) ?></td>
             <td class="actions">

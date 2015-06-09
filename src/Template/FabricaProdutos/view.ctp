@@ -1,3 +1,4 @@
+<?php $this->assign('title', 'Lista técnica item'); ?>
 <div class="actions columns large-2 medium-3">
     <h3><?= __('Actions') ?></h3>
     <ul class="side-nav">
@@ -16,9 +17,9 @@
     <div class="row">
         <div class="large-5 columns strings">
             <h6 class="subheader"><?= __('Produto') ?></h6>
-            <p><?= $fabricaProduto->has('produto') ? $this->Html->link($fabricaProduto->produto->id, ['controller' => 'Produtos', 'action' => 'view', $fabricaProduto->produto->id]) : '' ?></p>
+            <p><?= $fabricaProduto->has('produto') ? $this->Html->link($fabricaProduto->produto->descricao, ['controller' => 'Produtos', 'action' => 'view', $fabricaProduto->produto->id]) : '' ?></p>
             <h6 class="subheader"><?= __('Materias Prima') ?></h6>
-            <p><?= $fabricaProduto->has('materias_prima') ? $this->Html->link($fabricaProduto->materias_prima->id, ['controller' => 'MateriasPrimas', 'action' => 'view', $fabricaProduto->materias_prima->id]) : '' ?></p>
+            <p><?= $fabricaProduto->has('materias_prima') ? $this->Html->link($fabricaProduto->materias_prima->nome, ['controller' => 'MateriasPrimas', 'action' => 'view', $fabricaProduto->materias_prima->id]) : '' ?></p>
         </div>
         <div class="large-2 columns numbers end">
             <h6 class="subheader"><?= __('Id') ?></h6>
