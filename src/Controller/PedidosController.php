@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\I18n\Time;
 
 /**
  * Pedidos Controller
@@ -24,9 +25,19 @@ class PedidosController extends AppController
      */
     public function index()
     {
+        $startdate = Time::parseDateTime($this->request->query("startDate"), 'dd/MM/yyyy');
+        $enddate = Time::parseDateTime($this->request->query("endDate"), 'dd/MM/yyyy');
+
         $this->paginate = [
-            'contain' => ['Fornecedores', 'Status', 'Usuarios']
+            'contain' => ['Fornecedores', 'Status', 'Usuarios'],
+            'finder' => [
+                "date" => [
+                    "start" => $startdate,
+                    "end" => $enddate
+                ]
+            ]
         ];
+
         $this->set('pedidos', $this->paginate($this->Pedidos));
         $this->set('_serialize', ['pedidos']);
     }

@@ -14,7 +14,11 @@
 </div>
 <div class="pedidos index large-10 medium-9 columns">
     <form>
-        <input type="text" class="datepicker" />
+        <label for="dateStart">Data inicial</label>
+        <input type="text" name="startDate" class="datepicker" data-relative="endDate" />
+        <label for="dateEnd">Data final</label>
+        <input type="text" name="endDate" class="datepicker" />
+        <input type="submit" value="filtrar" />
     </form>
     <table cellpadding="0" cellspacing="0">
     <thead>

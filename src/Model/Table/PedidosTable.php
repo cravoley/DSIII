@@ -2,6 +2,8 @@
 namespace App\Model\Table;
 
 use App\Model\Entity\Pedido;
+use Cake\Database\Driver\Mysql;
+use Cake\Database\Type\DateTimeType;
 use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
@@ -88,4 +90,21 @@ class PedidosTable extends Table
     }
 
 
+    public function findDate(Query $query, array $opts)
+    {
+        if ($opts["start"] != null && $opts["end"] != null) {
+            $query->where([
+                'UNIX_TIMESTAMP(datapedido) BETWEEN ' . $opts["start"]->toUnixString() . ' AND ' . $opts["end"]->toUnixString()
+            ]);
+        } else if ($opts["start"] != null) {
+            $query->where([
+                'UNIX_TIMESTAMP(datapedido) > ' . $opts["start"]->toUnixString()
+            ]);
+        } else if ($opts["end"] != null) {
+            $query->where([
+                'UNIX_TIMESTAMP(datapedido) < ' . $opts["end"]->toUnixString()
+            ]);
+        }
+        return $query;
+    }
 }
