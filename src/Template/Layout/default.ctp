@@ -13,7 +13,7 @@
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
 
-$cakeDescription = 'CakePHP: the rapid development php framework';
+$cakeDescription = 'Sistema de controle de Estoque | DS3';
 ?>
 <!DOCTYPE html>
 <html>
