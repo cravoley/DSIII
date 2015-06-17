@@ -44,22 +44,21 @@ $cakeDescription = 'Sistema de controle de Estoque | DS3';
             <span><?= $this->fetch('title') ?></span>
         </div>
         <div class="header-help">
-            <span><a href="/ds3/usuarios/logout">Logout</a></span>
+            <span><a href="/usuarios/logout">Logout</a></span>
         </div>
     </header>
     <div id="container">
         <nav id="menu-horizontal">
             <ul>
-                <li><a href="/ds3/estoques">Estoque</a></li>
-                <li><a href="/ds3/fabrica_produtos">Lista Técnica</a></li>
-                <li><a href="/ds3/fornecedores">Fornecedores</a></li>
-                <li><a href="/ds3/materias_primas">Matéria Prima</a></li>
-                <li><a href="/ds3/matpri_fornecedores">Informações Materia Prima</a></li>
-                <li><a href="/ds3/pedidos">Pedidos</a></li>
-                <li><a href="/ds3/produtos">Produtos</a></li>
-                <li><a href="/ds3/pedido_itens">Itens do Pedido</a></li>
-                <li><a href="/ds3/status">Status</a></li>
-                <li><a href="/ds3/usuarios">Usuários</a></li>
+                <li><a href="/estoques">Estoque</a></li>
+                <li><a href="/fabrica_produtos">Lista Técnica</a></li>
+                <li><a href="/fornecedores">Fornecedores</a></li>
+                <li><a href="/materias_primas">Matéria Prima</a></li>
+                <li><a href="/matpri_fornecedores">Informações Materia Prima</a></li>
+                <li><a href="/pedidos">Pedidos</a></li>
+                <li><a href="/produtos">Produtos</a></li>
+                <li><a href="/status">Status</a></li>
+                <li><a href="/usuarios">Usuários</a></li>
             </ul>
         </nav>
         <div id="content">
