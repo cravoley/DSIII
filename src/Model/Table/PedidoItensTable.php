@@ -22,7 +22,7 @@ class PedidoItensTable extends Table
     public function initialize(array $config)
     {
         $this->table('pedido_itens');
-        $this->displayField('id');
+        $this->displayField('nome');
         $this->primaryKey('id');
         $this->belongsTo('Pedidos', [
             'foreignKey' => 'pedido_id',

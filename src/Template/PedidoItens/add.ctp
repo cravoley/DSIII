@@ -13,7 +13,11 @@
     <fieldset>
         <legend><?= __('Add Pedido Iten') ?></legend>
         <?php
-            echo $this->Form->input('pedido_id', ['options' => $pedidos]);
+            echo $this->Form->input('pedido_id', [
+                'readonly' => 'readonly',
+                'type' => 'text',
+                'value' => $pedidoId
+            ]);
             echo $this->Form->input('materia_prima_id', ['options' => $materiasPrimas]);
             echo $this->Form->input('quantidade');
         ?>

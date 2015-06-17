@@ -56,7 +56,7 @@
         <tr>
             <td><?= h($pedidoItens->id) ?></td>
             <td><?= h($pedidoItens->pedido_id) ?></td>
-            <td><?= h($pedidoItens->materia_prima_id) ?></td>
+            <td><?= h($pedidoItens->materia_prima_nome) ?></td>
             <td><?= h($pedidoItens->quantidade) ?></td>
 
             <td class="actions">

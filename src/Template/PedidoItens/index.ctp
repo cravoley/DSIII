@@ -27,7 +27,7 @@
                 <?= $pedidoIten->has('pedido') ? $this->Html->link($pedidoIten->pedido->id, ['controller' => 'Pedidos', 'action' => 'view', $pedidoIten->pedido->id]) : '' ?>
             </td>
             <td>
-                <?= $pedidoIten->has('materias_prima') ? $this->Html->link($pedidoIten->materias_prima->id, ['controller' => 'MateriasPrimas', 'action' => 'view', $pedidoIten->materias_prima->id]) : '' ?>
+                <?= $pedidoIten->has('materias_prima') ? $this->Html->link($pedidoIten->materias_prima->nome, ['controller' => 'MateriasPrimas', 'action' => 'view', $pedidoIten->materias_prima->id]) : '' ?>
             </td>
             <td><?= $this->Number->format($pedidoIten->quantidade) ?></td>
             <td class="actions">

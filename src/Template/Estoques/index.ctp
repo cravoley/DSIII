@@ -21,7 +21,7 @@
         <tr>
             <td><?= $this->Number->format($estoque->id) ?></td>
             <td>
-                <?= $estoque->has('materias_prima') ? $this->Html->link($estoque->materias_prima->id, ['controller' => 'MateriasPrimas', 'action' => 'view', $estoque->materias_prima->id]) : '' ?>
+                <?= $estoque->has('materias_prima') ? $this->Html->link($estoque->materias_prima->nome, ['controller' => 'MateriasPrimas', 'action' => 'view', $estoque->materias_prima->id]) : '' ?>
             </td>
             <td><?= $this->Number->format($estoque->quantidade) ?></td>
             <td class="actions">

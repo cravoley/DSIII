@@ -24,6 +24,9 @@ class MateriasPrimasTable extends Table
         $this->table('materias_primas');
         $this->displayField('nome');
         $this->primaryKey('id');
+        $this->hasMany('MatpriFornecedores', [
+            'foreignKey' => 'materia_prima_id'
+        ]);
     }
 
     /**

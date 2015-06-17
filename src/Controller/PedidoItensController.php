@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\ORM\TableRegistry;
 
 /**
  * PedidoItens Controller
@@ -46,21 +47,32 @@ class PedidoItensController extends AppController
      *
      * @return void Redirects on successful add, renders view otherwise.
      */
-    public function add()
+    public function add($pedidoId)
     {
         $pedidoIten = $this->PedidoItens->newEntity();
         if ($this->request->is('post')) {
             $pedidoIten = $this->PedidoItens->patchEntity($pedidoIten, $this->request->data);
             if ($this->PedidoItens->save($pedidoIten)) {
                 $this->Flash->success(__('The pedido iten has been saved.'));
-                return $this->redirect(['action' => 'index']);
+                return $this->redirect(['controller' => 'Pedido', 'action' => 'edit', $pedidoIten['pedido_id']]);
             } else {
                 $this->Flash->error(__('The pedido iten could not be saved. Please, try again.'));
             }
         }
-        $pedidos = $this->PedidoItens->Pedidos->find('list', ['limit' => 200]);
-        $materiasPrimas = $this->PedidoItens->MateriasPrimas->find('list', ['limit' => 200]);
-        $this->set(compact('pedidoIten', 'pedidos', 'materiasPrimas'));
+
+        $materiasPrimas = $this->PedidoItens->MateriasPrimas->find('list')
+            ->matching(
+                'MatpriFornecedores', function($q) use ($pedidoId){
+                    $Pedidos = TableRegistry::get('Pedidos');
+                    $pedido = $Pedidos->find('all', [
+                        'conditions' => ['id' => $pedidoId]
+                    ])->first();
+                    return $q
+                        ->where(['MatpriFornecedores.fornecedor_id' => $pedido['fornecedor_id']]);
+                }
+            );
+
+        $this->set(compact('pedidoIten', 'materiasPrimas', 'pedidoId'));
         $this->set('_serialize', ['pedidoIten']);
     }
 
@@ -80,14 +92,24 @@ class PedidoItensController extends AppController
             $pedidoIten = $this->PedidoItens->patchEntity($pedidoIten, $this->request->data);
             if ($this->PedidoItens->save($pedidoIten)) {
                 $this->Flash->success(__('The pedido iten has been saved.'));
-                return $this->redirect(['action' => 'index']);
+                return $this->redirect(['controller' => 'Pedidos', 'action' => 'edit', $pedidoIten['pedido_id']]);
             } else {
                 $this->Flash->error(__('The pedido iten could not be saved. Please, try again.'));
             }
         }
-        $pedidos = $this->PedidoItens->Pedidos->find('list', ['limit' => 200]);
-        $materiasPrimas = $this->PedidoItens->MateriasPrimas->find('list', ['limit' => 200]);
-        $this->set(compact('pedidoIten', 'pedidos', 'materiasPrimas'));
+        $pedidoId = $pedidoIten['pedido_id'];
+        $materiasPrimas = $this->PedidoItens->MateriasPrimas->find('list')
+            ->matching(
+                'MatpriFornecedores', function($q) use ($pedidoId){
+                    $Pedidos = TableRegistry::get('Pedidos');
+                    $pedido = $Pedidos->find('all', [
+                        'conditions' => ['id' => $pedidoId]
+                    ])->first();
+                    return $q
+                        ->where(['MatpriFornecedores.fornecedor_id' => $pedido['fornecedor_id']]);
+                }
+            );
+        $this->set(compact('pedidoIten', 'pedidoId', 'materiasPrimas'));
         $this->set('_serialize', ['pedidoIten']);
     }
 

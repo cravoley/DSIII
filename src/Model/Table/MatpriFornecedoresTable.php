@@ -22,7 +22,7 @@ class MatpriFornecedoresTable extends Table
     public function initialize(array $config)
     {
         $this->table('matpri_fornecedores');
-        $this->displayField('id');
+        $this->displayField('nome');
         $this->primaryKey('id');
         $this->belongsTo('Fornecedores', [
             'foreignKey' => 'fornecedor_id',

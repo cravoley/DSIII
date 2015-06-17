@@ -3,6 +3,7 @@ namespace App\Controller;
 
 use App\Controller\AppController;
 use Cake\I18n\Time;
+use Cake\ORM\TableRegistry;
 
 /**
  * Pedidos Controller
@@ -54,6 +55,13 @@ class PedidosController extends AppController
         $pedido = $this->Pedidos->get($id, [
             'contain' => ['Fornecedores', 'Status', 'Usuarios', 'PedidoItens']
         ]);
+        $MateriasPrimas = TableRegistry::get('MateriasPrimas');
+        foreach ($pedido->pedido_itens as $k => $pedidoItem){
+            $matPrimaNome = $MateriasPrimas->find('all', [
+               'conditions' => ['id' => $pedido->pedido_itens[$k]['materia_prima_id']]
+            ])->first();
+            $pedido->pedido_itens[$k]['materia_prima_nome'] = $matPrimaNome['nome'];
+        }
         $this->set('pedido', $pedido);
         $this->set('_serialize', ['pedido']);
     }
@@ -92,12 +100,42 @@ class PedidosController extends AppController
     public function edit($id = null)
     {
         $pedido = $this->Pedidos->get($id, [
-            'contain' => []
+            'contain' => ['PedidoItens']
         ]);
+        $MateriasPrimas = TableRegistry::get('MateriasPrimas');
+        foreach ($pedido->pedido_itens as $k => $pedidoItem){
+            $matPrimaNome = $MateriasPrimas->find('all', [
+                'conditions' => ['id' => $pedido->pedido_itens[$k]['materia_prima_id']]
+            ])->first();
+            $pedido->pedido_itens[$k]['materia_prima_nome'] = $matPrimaNome['nome'];
+        }
         if ($this->request->is(['patch', 'post', 'put'])) {
             $pedido = $this->Pedidos->patchEntity($pedido, $this->request->data);
             if ($this->Pedidos->save($pedido)) {
+                if($pedido['status_id'] == '6'){
+                    foreach($pedido->pedido_itens as $item) {
+                        $estoquesTable = TableRegistry::get('Estoques');
+                        $itemEstoque = $estoquesTable->findByMateriaPrimaId($item['materia_prima_id'])->first();
+                        $estoque = $estoquesTable->newEntity();
+                        if(isset($itemEstoque)){
+                            $estoque = $itemEstoque;
+                        }else {
+                            $estoque->materia_prima_id = $item['materia_prima_id'];
+                        }
+                        if(isset($itemEstoque)){
+                            $estoque->quantidade = $item['quantidade'] + $itemEstoque->quantidade;
+                        }else {
+                            $estoque->quantidade = $item['quantidade'];
+                        }
+                        //debug($itemEstoque);
+                        //die;
+                        if(!$estoquesTable->save($estoque)){
+                            $erroEstoque = '1';
+                        }
+                    }
+                }
                 $this->Flash->success(__('The pedido has been saved.'));
+
                 return $this->redirect(['action' => 'index']);
             } else {
                 $this->Flash->error(__('The pedido could not be saved. Please, try again.'));
