@@ -13,7 +13,7 @@
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
 
-$cakeDescription = 'Sistema de controle de Estoque | DS3';
+$cakeDescription = 'MEPAVA Móveis | Sistema de controle de Estoque';
 ?>
 <!DOCTYPE html>
 <html>
