@@ -112,7 +112,7 @@ class PedidosController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $pedido = $this->Pedidos->patchEntity($pedido, $this->request->data);
             if ($this->Pedidos->save($pedido)) {
-                if($pedido['status_id'] == '6'){
+                if($pedido['status_id'] == '4'){
                     foreach($pedido->pedido_itens as $item) {
                         $estoquesTable = TableRegistry::get('Estoques');
                         $itemEstoque = $estoquesTable->findByMateriaPrimaId($item['materia_prima_id'])->first();
