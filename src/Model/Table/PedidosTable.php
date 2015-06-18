@@ -98,11 +98,11 @@ class PedidosTable extends Table
             ]);
         } else if ($opts["start"] != null) {
             $query->where([
-                'UNIX_TIMESTAMP(datapedido) > ' . $opts["start"]->toUnixString()
+                'UNIX_TIMESTAMP(datapedido) >= ' . $opts["start"]->toUnixString()
             ]);
         } else if ($opts["end"] != null) {
             $query->where([
-                'UNIX_TIMESTAMP(datapedido) < ' . $opts["end"]->toUnixString()
+                'UNIX_TIMESTAMP(datapedido) <= ' . $opts["end"]->toUnixString()
             ]);
         }
         return $query;

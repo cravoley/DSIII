@@ -7,9 +7,9 @@
 <div class="pedidos index large-10 medium-9 columns">
     <form>
         <label for="dateStart">Data pedido inicial</label>
-        <input type="text" name="startDate" class="datepicker" data-relative="endDate" />
+        <input type="text" name="startDate" class="datepicker" data-relative="endDate" value="<?=$this->request->query("startDate")?>" />
         <label for="dateEnd">Data  pedido final</label>
-        <input type="text" name="endDate" class="datepicker" />
+        <input type="text" name="endDate" class="datepicker" value="<?=$this->request->query("endDate")?>" />
         <input type="submit" value="filtrar" />
     </form>
     <table cellpadding="0" cellspacing="0">
