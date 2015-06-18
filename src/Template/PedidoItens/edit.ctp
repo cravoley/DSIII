@@ -2,22 +2,18 @@
     <h3><?= __('Actions') ?></h3>
     <ul class="side-nav">
         <li><?= $this->Form->postLink(
-                __('Delete'),
+                __('Deletar'),
                 ['action' => 'delete', $pedidoIten->id],
                 ['confirm' => __('Are you sure you want to delete # {0}?', $pedidoIten->id)]
             )
         ?></li>
-        <li><?= $this->Html->link(__('List Pedido Itens'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('List Pedidos'), ['controller' => 'Pedidos', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Pedido'), ['controller' => 'Pedidos', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Materias Primas'), ['controller' => 'MateriasPrimas', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Materias Prima'), ['controller' => 'MateriasPrimas', 'action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('Listar Pedidos'), ['controller' => 'Pedidos', 'action' => 'index']) ?></li>
     </ul>
 </div>
 <div class="pedidoItens form large-10 medium-9 columns">
     <?= $this->Form->create($pedidoIten) ?>
     <fieldset>
-        <legend><?= __('Edit Pedido Iten') ?></legend>
+        <legend><?= __('Editar item do pedido') ?></legend>
         <?php
             echo $this->Form->input('pedido_id', [
                 'readonly' => 'readonly',
@@ -28,6 +24,6 @@
             echo $this->Form->input('quantidade');
         ?>
     </fieldset>
-    <?= $this->Form->button(__('Submit')) ?>
+    <?= $this->Form->button(__('Salvar')) ?>
     <?= $this->Form->end() ?>
 </div>

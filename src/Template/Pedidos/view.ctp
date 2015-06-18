@@ -1,18 +1,8 @@
 <div class="actions columns large-2 medium-3">
-    <h3><?= __('Actions') ?></h3>
+    <h3><?= __('Ações') ?></h3>
     <ul class="side-nav">
-        <li><?= $this->Html->link(__('Edit Pedido'), ['action' => 'edit', $pedido->id]) ?> </li>
-        <li><?= $this->Form->postLink(__('Delete Pedido'), ['action' => 'delete', $pedido->id], ['confirm' => __('Are you sure you want to delete # {0}?', $pedido->id)]) ?> </li>
-        <li><?= $this->Html->link(__('List Pedidos'), ['action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Pedido'), ['action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Fornecedores'), ['controller' => 'Fornecedores', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Fornecedore'), ['controller' => 'Fornecedores', 'action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Status'), ['controller' => 'Status', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Status'), ['controller' => 'Status', 'action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Usuarios'), ['controller' => 'Usuarios', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Usuario'), ['controller' => 'Usuarios', 'action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Pedido Itens'), ['controller' => 'PedidoItens', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Pedido Iten'), ['controller' => 'PedidoItens', 'action' => 'add']) ?> </li>
+        <li><?= $this->Html->link(__('Editar pedido'), ['action' => 'edit', $pedido->id]) ?> </li>
+        <li><?= $this->Html->link(__('Listar pedidos'), ['action' => 'index']) ?> </li>
     </ul>
 </div>
 <div class="pedidos view large-10 medium-9 columns">
@@ -20,11 +10,11 @@
     <div class="row">
         <div class="large-5 columns strings">
             <h6 class="subheader"><?= __('Fornecedore') ?></h6>
-            <p><?= $pedido->has('fornecedore') ? $this->Html->link($pedido->fornecedore->id, ['controller' => 'Fornecedores', 'action' => 'view', $pedido->fornecedore->id]) : '' ?></p>
+            <p><?= $pedido->has('fornecedore') ? $this->Html->link($pedido->fornecedore->nome, ['controller' => 'Fornecedores', 'action' => 'view', $pedido->fornecedore->id]) : '' ?></p>
             <h6 class="subheader"><?= __('Status') ?></h6>
-            <p><?= $pedido->has('status') ? $this->Html->link($pedido->status->id, ['controller' => 'Status', 'action' => 'view', $pedido->status->id]) : '' ?></p>
+            <p><?= $pedido->has('status') ? $this->Html->link($pedido->status->descricao, ['controller' => 'Status', 'action' => 'view', $pedido->status->id]) : '' ?></p>
             <h6 class="subheader"><?= __('Usuario') ?></h6>
-            <p><?= $pedido->has('usuario') ? $this->Html->link($pedido->usuario->id, ['controller' => 'Usuarios', 'action' => 'view', $pedido->usuario->id]) : '' ?></p>
+            <p><?= $pedido->has('usuario') ? $this->Html->link($pedido->usuario->nome, ['controller' => 'Usuarios', 'action' => 'view', $pedido->usuario->id]) : '' ?></p>
         </div>
         <div class="large-2 columns numbers end">
             <h6 class="subheader"><?= __('Id') ?></h6>
@@ -42,7 +32,7 @@
 </div>
 <div class="related row">
     <div class="column large-12">
-    <h4 class="subheader"><?= __('Related PedidoItens') ?></h4>
+    <h4 class="subheader"><?= __('Itens do pedido') ?></h4>
     <?php if (!empty($pedido->pedido_itens)): ?>
     <table cellpadding="0" cellspacing="0">
         <tr>

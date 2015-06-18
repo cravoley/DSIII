@@ -53,8 +53,8 @@ class PedidoItensController extends AppController
         if ($this->request->is('post')) {
             $pedidoIten = $this->PedidoItens->patchEntity($pedidoIten, $this->request->data);
             if ($this->PedidoItens->save($pedidoIten)) {
-                $this->Flash->success(__('The pedido iten has been saved.'));
-                return $this->redirect(['controller' => 'Pedido', 'action' => 'edit', $pedidoIten['pedido_id']]);
+                $this->Flash->success(__('O item do pedido foi salvo com sucesso.'));
+                return $this->redirect(['controller' => 'Pedidos', 'action' => 'edit', $pedidoIten['pedido_id']]);
             } else {
                 $this->Flash->error(__('The pedido iten could not be saved. Please, try again.'));
             }
@@ -91,7 +91,7 @@ class PedidoItensController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $pedidoIten = $this->PedidoItens->patchEntity($pedidoIten, $this->request->data);
             if ($this->PedidoItens->save($pedidoIten)) {
-                $this->Flash->success(__('The pedido iten has been saved.'));
+                $this->Flash->success(__('O item do pedido foi salvo com sucesso.'));
                 return $this->redirect(['controller' => 'Pedidos', 'action' => 'edit', $pedidoIten['pedido_id']]);
             } else {
                 $this->Flash->error(__('The pedido iten could not be saved. Please, try again.'));

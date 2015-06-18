@@ -51,12 +51,12 @@ $cakeDescription = 'MEPAVA Móveis | Sistema de controle de Estoque';
         <nav id="menu-horizontal">
             <ul>
                 <li><a href="/estoques">Estoque</a></li>
-                <li><a href="/fabrica_produtos">Lista Técnica</a></li>
+                <li><a href="/pedidos">Pedidos</a></li>
                 <li><a href="/fornecedores">Fornecedores</a></li>
                 <li><a href="/materias_primas">Matéria Prima</a></li>
                 <li><a href="/matpri_fornecedores">Informações Materia Prima</a></li>
-                <li><a href="/pedidos">Pedidos</a></li>
                 <li><a href="/produtos">Produtos</a></li>
+                <li><a href="/fabrica_produtos">Lista Técnica</a></li>
                 <li><a href="/status">Status</a></li>
                 <li><a href="/usuarios">Usuários</a></li>
             </ul>

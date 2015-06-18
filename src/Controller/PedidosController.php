@@ -77,8 +77,8 @@ class PedidosController extends AppController
         if ($this->request->is('post')) {
             $pedido = $this->Pedidos->patchEntity($pedido, $this->request->data);
             if ($this->Pedidos->save($pedido)) {
-                $this->Flash->success(__('The pedido has been saved.'));
-                return $this->redirect(['action' => 'index']);
+                $this->Flash->success(__('O pedido foi cadastrado com sucesso.'));
+                return $this->redirect(['controller' => 'PedidoItens', 'action' => 'add', $pedido['id']]);
             } else {
                 $this->Flash->error(__('The pedido could not be saved. Please, try again.'));
             }
@@ -134,8 +134,7 @@ class PedidosController extends AppController
                         }
                     }
                 }
-                $this->Flash->success(__('The pedido has been saved.'));
-
+                $this->Flash->success(__('O pedido foi salvo com sucesso.'));
                 return $this->redirect(['action' => 'index']);
             } else {
                 $this->Flash->error(__('The pedido could not be saved. Please, try again.'));
