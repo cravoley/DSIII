@@ -2,7 +2,7 @@
     <h3><?= __('Ações') ?></h3>
     <ul class="side-nav">
         <li><?= $this->Form->postLink(
-                __('Delete'),
+                __('Remover'),
                 ['action' => 'Deletar', $fornecedore->id],
                 ['confirm' => __('Tem certeza que deseja deletar o fornecedor: {0}?', $fornecedore->nome)]
             )

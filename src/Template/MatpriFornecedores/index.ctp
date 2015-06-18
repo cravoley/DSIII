@@ -1,12 +1,10 @@
 <?php $this->assign('title', 'Valores e prazos dos produtos por fornecedor'); ?>
 <div class="actions columns large-2 medium-3">
-    <h3><?= __('Actions') ?></h3>
+    <h3><?= __('Ações') ?></h3>
     <ul class="side-nav">
-        <li><?= $this->Html->link(__('New Matpri Fornecedore'), ['action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Fornecedores'), ['controller' => 'Fornecedores', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Fornecedore'), ['controller' => 'Fornecedores', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Materias Primas'), ['controller' => 'MateriasPrimas', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Materias Prima'), ['controller' => 'MateriasPrimas', 'action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('Criar relação matéria prima com fornecedor'), ['action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('Novo fornecedor'), ['controller' => 'Fornecedores', 'action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('Nova matéria prima'), ['controller' => 'MateriasPrimas', 'action' => 'add']) ?></li>
     </ul>
 </div>
 <div class="matpriFornecedores index large-10 medium-9 columns">
@@ -15,10 +13,10 @@
         <tr>
             <th><?= $this->Paginator->sort('id') ?></th>
             <th><?= $this->Paginator->sort('fornecedor_id') ?></th>
-            <th><?= $this->Paginator->sort('materia_prima_id') ?></th>
-            <th><?= $this->Paginator->sort('preco') ?></th>
-            <th><?= $this->Paginator->sort('diasprazo') ?></th>
-            <th class="actions"><?= __('Actions') ?></th>
+            <th><?= $this->Paginator->sort('materia_prima_id', 'Matéria prima') ?></th>
+            <th><?= $this->Paginator->sort('preco', 'Preço') ?></th>
+            <th><?= $this->Paginator->sort('diasprazo', 'Prazo de entrega') ?></th>
+            <th class="actions"><?= __('Ações') ?></th>
         </tr>
     </thead>
     <tbody>
@@ -34,9 +32,20 @@
             <td><?= 'R$ '.$this->Number->format($matpriFornecedore->preco).',00' ?></td>
             <td><?= $this->Number->format($matpriFornecedore->diasprazo) ?></td>
             <td class="actions">
-                <?= $this->Html->link(__('View'), ['action' => 'view', $matpriFornecedore->id]) ?>
-                <?= $this->Html->link(__('Edit'), ['action' => 'edit', $matpriFornecedore->id]) ?>
-                <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $matpriFornecedore->id], ['confirm' => __('Are you sure you want to delete # {0}?', $matpriFornecedore->id)]) ?>
+                <?= $this->Html->image("icon_view.png", [
+                    "alt" => "Visualizar",
+                    'url' => ['controller' => 'MatpriFornecedores', 'action' => 'view', $matpriFornecedore->id]
+                ]); ?>
+                <?= $this->Html->image("icon_edit.png", [
+                    "alt" => "Editar",
+                    'url' => ['controller' => 'MatpriFornecedores', 'action' => 'edit', $matpriFornecedore->id]
+                ]); ?>
+                <?= $this->Form->postLink(
+                    $this->Html->image('icon_del.png',
+                        array("alt" => __('Delete'), "title" => __('Delete'))),
+                    array('action' => 'delete', $matpriFornecedore->id),
+                    array('escape' => false, 'confirm' => __('Você deseja remover a matéria prima?', $matpriFornecedore->id))
+                ); ?>
             </td>
         </tr>
 

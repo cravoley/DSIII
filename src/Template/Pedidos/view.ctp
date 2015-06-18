@@ -9,11 +9,11 @@
     <h2><?= h($pedido->id) ?></h2>
     <div class="row">
         <div class="large-5 columns strings">
-            <h6 class="subheader"><?= __('Fornecedore') ?></h6>
+            <h6 class="subheader"><?= __('Fornecedor') ?></h6>
             <p><?= $pedido->has('fornecedore') ? $this->Html->link($pedido->fornecedore->nome, ['controller' => 'Fornecedores', 'action' => 'view', $pedido->fornecedore->id]) : '' ?></p>
             <h6 class="subheader"><?= __('Status') ?></h6>
             <p><?= $pedido->has('status') ? $this->Html->link($pedido->status->descricao, ['controller' => 'Status', 'action' => 'view', $pedido->status->id]) : '' ?></p>
-            <h6 class="subheader"><?= __('Usuario') ?></h6>
+            <h6 class="subheader"><?= __('Usuário') ?></h6>
             <p><?= $pedido->has('usuario') ? $this->Html->link($pedido->usuario->nome, ['controller' => 'Usuarios', 'action' => 'view', $pedido->usuario->id]) : '' ?></p>
         </div>
         <div class="large-2 columns numbers end">
@@ -21,12 +21,12 @@
             <p><?= $this->Number->format($pedido->id) ?></p>
         </div>
         <div class="large-2 columns dates end">
-            <h6 class="subheader"><?= __('Datapedido') ?></h6>
+            <h6 class="subheader"><?= __('Data do pedido') ?></h6>
             <p><?= h($pedido->datapedido) ?></p>
-            <h6 class="subheader"><?= __('Dataentrega') ?></h6>
-            <p><?= h($pedido->dataentrega) ?></p>
-            <h6 class="subheader"><?= __('Dataprevisaoentrega') ?></h6>
+            <h6 class="subheader"><?= __('Data prevista para entrega') ?></h6>
             <p><?= h($pedido->dataprevisaoentrega) ?></p>
+            <h6 class="subheader"><?= __('Data entregue') ?></h6>
+            <p><?= h($pedido->dataentrega) ?></p>
         </div>
     </div>
 </div>

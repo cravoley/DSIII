@@ -1,9 +1,7 @@
 <div class="actions columns large-2 medium-3">
-    <h3><?= __('Actions') ?></h3>
+    <h3><?= __('Ações') ?></h3>
     <ul class="side-nav">
-        <li><?= $this->Html->link(__('New Status'), ['action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Pedidos'), ['controller' => 'Pedidos', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Pedido'), ['controller' => 'Pedidos', 'action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('Novo Status'), ['action' => 'add']) ?></li>
     </ul>
 </div>
 <div class="status index large-10 medium-9 columns">
@@ -21,9 +19,20 @@
             <td><?= $this->Number->format($status->id) ?></td>
             <td><?= h($status->descricao) ?></td>
             <td class="actions">
-                <?= $this->Html->link(__('View'), ['action' => 'view', $status->id]) ?>
-                <?= $this->Html->link(__('Edit'), ['action' => 'edit', $status->id]) ?>
-                <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $status->id], ['confirm' => __('Are you sure you want to delete # {0}?', $status->id)]) ?>
+                <?= $this->Html->image("icon_view.png", [
+                    "alt" => "Visualizar",
+                    'url' => ['controller' => 'Status', 'action' => 'view', $status->id]
+                ]); ?>
+                <?= $this->Html->image("icon_edit.png", [
+                    "alt" => "Editar",
+                    'url' => ['controller' => 'Status', 'action' => 'edit', $status->id]
+                ]); ?>
+                <?= $this->Form->postLink(
+                    $this->Html->image('icon_del.png',
+                        array("alt" => __('Delete'), "title" => __('Delete'))),
+                    array('action' => 'delete', $status->id),
+                    array('escape' => false, 'confirm' => __('Você deseja remover o status?', $status->id))
+                ); ?>
             </td>
         </tr>
 

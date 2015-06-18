@@ -1,7 +1,7 @@
 <div class="actions columns large-2 medium-3">
-    <h3><?= __('Actions') ?></h3>
+    <h3><?= __('Ações') ?></h3>
     <ul class="side-nav">
-        <li><?= $this->Html->link(__('New Produto'), ['action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('Novo produto'), ['action' => 'add']) ?></li>
     </ul>
 </div>
 <div class="produtos index large-10 medium-9 columns">
@@ -9,8 +9,8 @@
     <thead>
         <tr>
             <th><?= $this->Paginator->sort('id') ?></th>
-            <th><?= $this->Paginator->sort('descricao') ?></th>
-            <th class="actions"><?= __('Actions') ?></th>
+            <th><?= $this->Paginator->sort('descricao', 'Descrição') ?></th>
+            <th class="actions"><?= __('Ações') ?></th>
         </tr>
     </thead>
     <tbody>
@@ -19,9 +19,20 @@
             <td><?= $this->Number->format($produto->id) ?></td>
             <td><?= h($produto->descricao) ?></td>
             <td class="actions">
-                <?= $this->Html->link(__('View'), ['action' => 'view', $produto->id]) ?>
-                <?= $this->Html->link(__('Edit'), ['action' => 'edit', $produto->id]) ?>
-                <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $produto->id], ['confirm' => __('Are you sure you want to delete # {0}?', $produto->id)]) ?>
+                <?= $this->Html->image("icon_view.png", [
+                    "alt" => "Visualizar",
+                    'url' => ['controller' => 'Produtos', 'action' => 'view', $produto->id]
+                ]); ?>
+                <?= $this->Html->image("icon_edit.png", [
+                    "alt" => "Editar",
+                    'url' => ['controller' => 'Produtos', 'action' => 'edit', $produto->id]
+                ]); ?>
+                <?= $this->Form->postLink(
+                    $this->Html->image('icon_del.png',
+                        array("alt" => __('Delete'), "title" => __('Delete'))),
+                    array('action' => 'delete', $produto->id),
+                    array('escape' => false, 'confirm' => __('Deseja remover o produto?', $produto->id))
+                ); ?>
             </td>
         </tr>
 

@@ -1,8 +1,8 @@
 <div class="actions columns large-2 medium-3">
     <h3><?= __('Ações') ?></h3>
     <ul class="side-nav">
-        <li><?= $this->Html->link(__('Editar fornecedor'), ['action' => 'edit', $fornecedore->id]) ?> </li>
-        <li><?= $this->Form->postLink(__('Deletar fornecedor'), ['action' => 'delete', $fornecedore->id], ['confirm' => __('Tem certeza que deseja deletar o fornecedor: {0}?', $fornecedore->nome)]) ?> </li>
+        <li><?= $this->Html->link(__('Editar'), ['action' => 'edit', $fornecedore->id]) ?> </li>
+        <li><?= $this->Form->postLink(__('Remover'), ['action' => 'delete', $fornecedore->id], ['confirm' => __('Tem certeza que deseja deletar o fornecedor: {0}?', $fornecedore->nome)]) ?> </li>
         <li><?= $this->Html->link(__('Listar fornecedores'), ['action' => 'index']) ?> </li>
         <li><?= $this->Html->link(__('Adicionar fornecedor'), ['action' => 'add']) ?> </li>
     </ul>

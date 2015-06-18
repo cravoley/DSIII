@@ -1,9 +1,7 @@
 <div class="actions columns large-2 medium-3">
-    <h3><?= __('Actions') ?></h3>
+    <h3><?= __('Ações') ?></h3>
     <ul class="side-nav">
-        <li><?= $this->Html->link(__('New Usuario'), ['action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Pedidos'), ['controller' => 'Pedidos', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Pedido'), ['controller' => 'Pedidos', 'action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('Novo Usuário'), ['action' => 'add']) ?></li>
     </ul>
 </div>
 <div class="usuarios index large-10 medium-9 columns">
@@ -14,8 +12,8 @@
             <th><?= $this->Paginator->sort('nome') ?></th>
             <th><?= $this->Paginator->sort('login') ?></th>
             <th><?= $this->Paginator->sort('senha') ?></th>
-            <th><?= $this->Paginator->sort('datacadastro') ?></th>
-            <th class="actions"><?= __('Actions') ?></th>
+            <th><?= $this->Paginator->sort('datacadastro', 'Data de cadastro') ?></th>
+            <th class="actions"><?= __('Ações') ?></th>
         </tr>
     </thead>
     <tbody>
@@ -27,9 +25,20 @@
             <td><?= h($usuario->senha) ?></td>
             <td><?= h($usuario->datacadastro) ?></td>
             <td class="actions">
-                <?= $this->Html->link(__('View'), ['action' => 'view', $usuario->id]) ?>
-                <?= $this->Html->link(__('Edit'), ['action' => 'edit', $usuario->id]) ?>
-                <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $usuario->id], ['confirm' => __('Are you sure you want to delete # {0}?', $usuario->id)]) ?>
+                <?= $this->Html->image("icon_view.png", [
+                        "alt" => "Visualizar",
+                        'url' => ['controller' => 'Usuarios', 'action' => 'view', $usuario->id]
+                    ]); ?>
+                    <?= $this->Html->image("icon_edit.png", [
+                        "alt" => "Editar",
+                        'url' => ['controller' => 'Usuarios', 'action' => 'edit', $usuario->id]
+                    ]); ?>
+                    <?= $this->Form->postLink(
+                        $this->Html->image('icon_del.png',
+                            array("alt" => __('Delete'), "title" => __('Delete'))),
+                        array('action' => 'delete', $usuario->id),
+                        array('escape' => false, 'confirm' => __('Você deseja remover?', $usuario->id))
+                    ); ?>
             </td>
         </tr>
 

@@ -1,10 +1,10 @@
 <div class="actions columns large-2 medium-3">
-    <h3><?= __('Actions') ?></h3>
+    <h3><?= __('Ações') ?></h3>
     <ul class="side-nav">
-        <li><?= $this->Html->link(__('Edit Materias Prima'), ['action' => 'edit', $materiasPrima->id]) ?> </li>
-        <li><?= $this->Form->postLink(__('Delete Materias Prima'), ['action' => 'delete', $materiasPrima->id], ['confirm' => __('Are you sure you want to delete # {0}?', $materiasPrima->id)]) ?> </li>
-        <li><?= $this->Html->link(__('List Materias Primas'), ['action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Materias Prima'), ['action' => 'add']) ?> </li>
+        <li><?= $this->Html->link(__('Editar'), ['action' => 'edit', $materiasPrima->id]) ?> </li>
+        <li><?= $this->Form->postLink(__('Remover'), ['action' => 'delete', $materiasPrima->id], ['confirm' => __('Are you sure you want to delete # {0}?', $materiasPrima->id)]) ?> </li>
+        <li><?= $this->Html->link(__('Listar matérias primas'), ['action' => 'index']) ?> </li>
+        <li><?= $this->Html->link(__('Nova matéria prima'), ['action' => 'add']) ?> </li>
     </ul>
 </div>
 <div class="materiasPrimas view large-10 medium-9 columns">

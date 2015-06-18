@@ -52,7 +52,7 @@ class MatpriFornecedoresController extends AppController
         if ($this->request->is('post')) {
             $matpriFornecedore = $this->MatpriFornecedores->patchEntity($matpriFornecedore, $this->request->data);
             if ($this->MatpriFornecedores->save($matpriFornecedore)) {
-                $this->Flash->success(__('The matpri fornecedore has been saved.'));
+                $this->Flash->success(__('Relação adicionada com sucesso.'));
                 return $this->redirect(['action' => 'index']);
             } else {
                 $this->Flash->error(__('The matpri fornecedore could not be saved. Please, try again.'));
@@ -79,7 +79,7 @@ class MatpriFornecedoresController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $matpriFornecedore = $this->MatpriFornecedores->patchEntity($matpriFornecedore, $this->request->data);
             if ($this->MatpriFornecedores->save($matpriFornecedore)) {
-                $this->Flash->success(__('The matpri fornecedore has been saved.'));
+                $this->Flash->success(__('A relação entre matéria prima e fornecedor foi salva.'));
                 return $this->redirect(['action' => 'index']);
             } else {
                 $this->Flash->error(__('The matpri fornecedore could not be saved. Please, try again.'));
@@ -103,7 +103,7 @@ class MatpriFornecedoresController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $matpriFornecedore = $this->MatpriFornecedores->get($id);
         if ($this->MatpriFornecedores->delete($matpriFornecedore)) {
-            $this->Flash->success(__('The matpri fornecedore has been deleted.'));
+            $this->Flash->success(__('A relação entre matéria prima e fornecedor foi removida.'));
         } else {
             $this->Flash->error(__('The matpri fornecedore could not be deleted. Please, try again.'));
         }

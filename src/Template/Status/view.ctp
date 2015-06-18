@@ -1,12 +1,10 @@
 <div class="actions columns large-2 medium-3">
-    <h3><?= __('Actions') ?></h3>
+    <h3><?= __('Ações') ?></h3>
     <ul class="side-nav">
-        <li><?= $this->Html->link(__('Edit Status'), ['action' => 'edit', $status->id]) ?> </li>
-        <li><?= $this->Form->postLink(__('Delete Status'), ['action' => 'delete', $status->id], ['confirm' => __('Are you sure you want to delete # {0}?', $status->id)]) ?> </li>
-        <li><?= $this->Html->link(__('List Status'), ['action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Status'), ['action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Pedidos'), ['controller' => 'Pedidos', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Pedido'), ['controller' => 'Pedidos', 'action' => 'add']) ?> </li>
+        <li><?= $this->Html->link(__('Editar'), ['action' => 'edit', $status->id]) ?> </li>
+        <li><?= $this->Form->postLink(__('Remover'), ['action' => 'delete', $status->id], ['confirm' => __('Você deseja remover o status?', $status->id)]) ?> </li>
+        <li><?= $this->Html->link(__('Listar status'), ['action' => 'index']) ?> </li>
+        <li><?= $this->Html->link(__('Novo Status'), ['action' => 'add']) ?> </li>
     </ul>
 </div>
 <div class="status view large-10 medium-9 columns">
@@ -24,7 +22,7 @@
 </div>
 <div class="related row">
     <div class="column large-12">
-    <h4 class="subheader"><?= __('Related Pedidos') ?></h4>
+    <h4 class="subheader"><?= __('Pedidos relacionados') ?></h4>
     <?php if (!empty($status->pedidos)): ?>
     <table cellpadding="0" cellspacing="0">
         <tr>
@@ -48,12 +46,20 @@
             <td><?= h($pedidos->usuario_id) ?></td>
 
             <td class="actions">
-                <?= $this->Html->link(__('View'), ['controller' => 'Pedidos', 'action' => 'view', $pedidos->id]) ?>
-
-                <?= $this->Html->link(__('Edit'), ['controller' => 'Pedidos', 'action' => 'edit', $pedidos->id]) ?>
-
-                <?= $this->Form->postLink(__('Delete'), ['controller' => 'Pedidos', 'action' => 'delete', $pedidos->id], ['confirm' => __('Are you sure you want to delete # {0}?', $pedidos->id)]) ?>
-
+                <?= $this->Html->image("icon_view.png", [
+                                "alt" => "Visualizar",
+                                'url' => ['controller' => 'Pedidos', 'action' => 'view', $pedidos->id]
+                            ]); ?>
+                            <?= $this->Html->image("icon_edit.png", [
+                                "alt" => "Editar",
+                                'url' => ['controller' => 'Pedidos', 'action' => 'edit', $pedidos->id]
+                            ]); ?>
+                            <?= $this->Form->postLink(
+                                $this->Html->image('icon_del.png',
+                                    array("alt" => __('Delete'), "title" => __('Delete'))),
+                                array('controller' => 'Pedidos', 'action' => 'delete', $pedidos->id),
+                                array('escape' => false, 'confirm' => __('Você deseja remover o pedido?', $pedidos->id))
+                            ); ?>
             </td>
         </tr>
 

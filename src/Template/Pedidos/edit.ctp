@@ -10,10 +10,10 @@
         <legend><?= __('Editar Pedido') ?></legend>
         <?php
             echo $this->Form->input('fornecedor_id', ['options' => $fornecedores]);
-            echo $this->Form->input('datapedido');
-            echo $this->Form->input('dataentrega', array('empty' => true, 'default' => ''));
+            echo $this->Form->input('datapedido', ['label' => 'Data do pedido']);
+            echo $this->Form->input('dataprevisaoentrega', array('empty' => true, 'default' => '', 'label'=>'Previsão de entrega'));
             echo $this->Form->input('status_id', ['options' => $status]);
-            echo $this->Form->input('dataprevisaoentrega', array('empty' => true, 'default' => ''));
+            echo $this->Form->input('dataentrega', array('empty' => true, 'default' => '', 'label' => 'Data entregue'));
             echo $this->Form->input('usuario_id', ['options' => $usuarios]);
         ?>
     </fieldset>

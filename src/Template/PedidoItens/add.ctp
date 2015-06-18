@@ -18,6 +18,6 @@
             echo $this->Form->input('quantidade');
         ?>
     </fieldset>
-    <?= $this->Form->button(__('Cadastrar')) ?>
+    <?= $this->Form->button(__('Salvar')) ?>
     <?= $this->Form->end() ?>
 </div>

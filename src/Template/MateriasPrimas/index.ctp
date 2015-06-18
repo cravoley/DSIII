@@ -1,7 +1,7 @@
 <div class="actions columns large-2 medium-3">
-    <h3><?= __('Actions') ?></h3>
+    <h3><?= __('Ações') ?></h3>
     <ul class="side-nav">
-        <li><?= $this->Html->link(__('New Materias Prima'), ['action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('Nova Matéria prima'), ['action' => 'add']) ?></li>
     </ul>
 </div>
 <div class="materiasPrimas index large-10 medium-9 columns">
@@ -10,7 +10,7 @@
         <tr>
             <th><?= $this->Paginator->sort('id') ?></th>
             <th><?= $this->Paginator->sort('nome') ?></th>
-            <th class="actions"><?= __('Actions') ?></th>
+            <th class="actions"><?= __('Ações') ?></th>
         </tr>
     </thead>
     <tbody>
@@ -19,9 +19,20 @@
             <td><?= $this->Number->format($materiasPrima->id) ?></td>
             <td><?= h($materiasPrima->nome) ?></td>
             <td class="actions">
-                <?= $this->Html->link(__('View'), ['action' => 'view', $materiasPrima->id]) ?>
-                <?= $this->Html->link(__('Edit'), ['action' => 'edit', $materiasPrima->id]) ?>
-                <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $materiasPrima->id], ['confirm' => __('Are you sure you want to delete # {0}?', $materiasPrima->id)]) ?>
+                <?= $this->Html->image("icon_view.png", [
+                    "alt" => "Visualizar",
+                    'url' => ['controller' => 'MateriasPrimas', 'action' => 'view', $materiasPrima->id]
+                ]); ?>
+                <?= $this->Html->image("icon_edit.png", [
+                    "alt" => "Editar",
+                    'url' => ['controller' => 'MateriasPrimas', 'action' => 'edit', $materiasPrima->id]
+                ]); ?>
+                <?= $this->Form->postLink(
+                    $this->Html->image('icon_del.png',
+                        array("alt" => __('Delete'), "title" => __('Delete'))),
+                    array('action' => 'delete', $materiasPrima->id),
+                    array('escape' => false, 'confirm' => __('Você deseja remover a matéria prima?', $materiasPrima->id))
+                ); ?>
             </td>
         </tr>
 
