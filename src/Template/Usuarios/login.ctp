@@ -8,7 +8,7 @@ $this->layout = 'login';
     <?= $this->Flash->render('auth') ?>
     <?= $this->Form->create() ?>
     <fieldset>
-        <legend><?= __('Please enter your username and password') ?></legend>
+        <legend><?= __('Insira o usuário e senha') ?></legend>
         <?= $this->Form->input('login') ?>
         <?= $this->Form->input('password') ?>
     </fieldset>

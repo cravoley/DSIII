@@ -1,3 +1,4 @@
+<?php $this->assign('title', 'Matérias Primas - Editar'); ?>
 <div class="actions columns large-2 medium-3">
     <h3><?= __('Ações') ?></h3>
     <ul class="side-nav">

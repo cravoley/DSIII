@@ -1,4 +1,4 @@
-<?php $this->assign('title', 'Lista técnica'); ?>
+<?php $this->assign('title', 'Lista técnica - Editar'); ?>
 <div class="actions columns large-2 medium-3">
     <h3><?= __('Ações') ?></h3>
     <ul class="side-nav">
